@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة الاختراق</title>
+</head>
+<body>
+    <h1>معلومات تسجيل الدخول</h1>
+    <ul id="login-list"></ul>
+
+    <script>
+        // استخراج المعلومات من localStorage وعرضها
+        const loginData = JSON.parse(localStorage.getItem("loginData")) || [];
+
+        const loginList = document.getElementById("login-list");
+
+        loginData.forEach(data => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `اسم المستخدم: ${data.username}, كلمة المرور: ${data.password}`;
+            loginList.appendChild(listItem);
+        });
+    </script>
+</body>
+</html>

